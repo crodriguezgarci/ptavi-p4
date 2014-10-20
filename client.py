@@ -16,15 +16,23 @@ PORT = int(sys.argv[2])
 
 # Método al que pertenecerá el mensaje.
 
-LINE = sys.argv[3]
+METODO = sys.argv[3]
+
+# Nombre de usuario
+
+USUARIO = sys.argv[4]
+
+#Contenido del mensaje
+
+LINE = METODO.upper() + " sip:" + USUARIO + " SIP/1.0\r\n\r\n"
 
 # Creamos el socket, lo configuramos y lo atamos a un servidor/puerto
 my_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 my_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 my_socket.connect((SERVER, PORT))
 
-print "Enviando: " + LINE
-my_socket.send(LINE + '\r\n')
+print "Enviando: " + LINE + USUARIO
+my_socket.send(LINE)
 data = my_socket.recv(1024)
 
 print 'Recibido -- ', data
