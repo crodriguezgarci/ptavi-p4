@@ -10,22 +10,25 @@ import sys
 # Cliente UDP simple.
 
 # Dirección IP del servidor.
-
-SERVER = sys.argv[1]
-PORT = int(sys.argv[2])
+try:
+    SERVER = sys.argv[1]
+    PORT = int(sys.argv[2])
 
 # Método al que pertenecerá el mensaje.
 
-METODO = sys.argv[3]
+    METODO = sys.argv[3]
 
 # Nombre de usuario
 
-USUARIO = sys.argv[4]
+    USUARIO = sys.argv[4]
 
 #Tiempo de expiración.
 
-EXPIRES = sys.argv[5]
-
+        EXPIRES = sys.argv[5]
+    
+except IndexError:
+    print "Usage: client.py ip puerto register sip_address expires_value"
+    exit()
 #Contenido del mensaje
 
 LINE = METODO.upper() + " sip:" + USUARIO + " SIP/1.0\r\n"
