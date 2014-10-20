@@ -19,9 +19,10 @@ class EchoHandler(SocketServer.DatagramRequestHandler):
         while 1:
             # Leyendo línea a línea lo que nos envía el cliente
             line = self.rfile.read()
-            print "El cliente nos manda " + line
             if not line:
                 break
+            print "El cliente nos manda " + line
+            
 
 if __name__ == "__main__":
     # Creamos servidor de eco y escuchamos
