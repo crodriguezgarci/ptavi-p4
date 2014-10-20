@@ -14,7 +14,7 @@ import sys
 SERVER = sys.argv[1]
 PORT = int(sys.argv[2])
 
-# Contenido que vamos a enviar
+# Método al que pertenecerá el mensaje.
 
 LINE = sys.argv[3]
 
