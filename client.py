@@ -22,9 +22,14 @@ METODO = sys.argv[3]
 
 USUARIO = sys.argv[4]
 
+#Tiempo de expiración.
+
+EXPIRES = sys.argv[5]
+
 #Contenido del mensaje
 
-LINE = METODO.upper() + " sip:" + USUARIO + " SIP/1.0\r\n\r\n"
+LINE = METODO.upper() + " sip:" + USUARIO + " SIP/1.0\r\n"
+LINE = LINE + "Expire: " + EXPIRES + "\r\n\r\n"
 
 # Creamos el socket, lo configuramos y lo atamos a un servidor/puerto
 my_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
