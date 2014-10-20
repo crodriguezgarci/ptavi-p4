@@ -24,7 +24,7 @@ try:
 
 #Tiempo de expiración.
 
-        EXPIRES = sys.argv[5]
+    EXPIRES = sys.argv[5]
     
 except IndexError:
     print "Usage: client.py ip puerto register sip_address expires_value"
