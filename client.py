@@ -33,7 +33,7 @@ my_socket.connect((SERVER, PORT))
 #Enviamos el mensaje de respuesta.
 print "Enviando: " + LINE + USUARIO
 my_socket.send(LINE)
-#Recibimos y sacamos la información de los nuevos mensajes.
+#Recibimos y sacamos la información de los nuevos mensajes recibidos.
 data = my_socket.recv(1024)
 print 'Recibido -- ', data
 print "Terminando socket..."
