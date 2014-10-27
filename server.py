@@ -34,7 +34,8 @@ class EchoHandler(SocketServer.DatagramRequestHandler):
         fichero.write("User \t IP \t Expires \n")
         for key in registro:
             fichero.write(key + " " + registro[key][0] + " ")
-            fecha = time.strftime('%Y-%m-%d %H:%M:%S', time.gmtime(registro[key][2]))
+            fecha = time.strftime('%Y-%m-%d %H:%M:%S',
+                                  time.gmtime(registro[key][2]))
             fichero.write(fecha + "\n")
 
     def handle(self):
@@ -61,13 +62,14 @@ class EchoHandler(SocketServer.DatagramRequestHandler):
             if line[0] == "REGISTER" and line[2] == "SIP/2.0":
                 line[1] = line[1].split(":")
                 #Envia el mensaje de que la petición ha llegado correctamente.
-                self.wfile.write(line[2] + "200 OK\r\n\r\n")
+                self.wfile.write(line[2] + " 200 OK\r\n\r\n")
                 #Comprueba el valor del campo "EXPIRES".
                 if line[4] != "0":
                     # Rellena el registro con la información necesaria del
                     # usuario que envia la petición.
                     fecharegistro = time.time()
-                    registro[line[1][1]] = [str(self.client_address[0]), line[4], fecharegistro]
+                    registro[line[1][1]] = [str(self.client_address[0]),
+                                            line[4], fecharegistro]
                 else:
                     #Ya que el valor de expires es 0, no introduce
                     #al usuario en el registro
