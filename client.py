@@ -18,7 +18,7 @@ try:
 
     METODO = sys.argv[3]
 
-# Nombre de usuario
+# Nombre de usuario.
 
     USUARIO = sys.argv[4]
 
