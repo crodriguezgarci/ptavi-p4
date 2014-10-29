@@ -12,7 +12,7 @@ import time
 registro = {}
 
 
-class EchoHandler(SocketServer.DatagramRequestHandler):
+class SIPRegisterHandler(SocketServer.DatagramRequestHandler):
     def borrar_caducados(self, registro):
         """
         Borra los usuarios presentes en el registro cuyo fecha
@@ -83,6 +83,6 @@ class EchoHandler(SocketServer.DatagramRequestHandler):
 if __name__ == "__main__":
     PORT = int(sys.argv[1])
     # Creamos servidor de eco y escuchamos
-    serv = SocketServer.UDPServer(("", PORT), EchoHandler)
+    serv = SocketServer.UDPServer(("", PORT), SIPRegisterHandler)
     print "Lanzando servidor UDP de SIP..."
     serv.serve_forever()
